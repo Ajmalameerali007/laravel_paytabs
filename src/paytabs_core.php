@@ -730,13 +730,9 @@ class PaytabsApi
 
     function create_payment_response($values){
 
-        $isTokenize = array_key_exists('token', $values);
-
         $response = $this->sendRequest(self::URL_REQUEST, $values);
 
-        $res = json_decode($response);
-
-        return $isTokenize ? $this->enhanceTokenization($res) : false;
+        return json_decode($response);
 
     }
 

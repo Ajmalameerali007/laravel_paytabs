@@ -130,7 +130,7 @@ class paypage
         $this->paytabs_core->set99PluginInfo('Laravel',8,'1.4.0');
         $pp_params = $this->paytabs_core->pt_build();
         $response = $this->paytabs_api->create_payment_response($pp_params);
-        if ($response->success) {
+        if ($response) {
             return $response;
         }
         else {
