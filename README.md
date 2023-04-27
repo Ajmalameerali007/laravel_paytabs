@@ -89,6 +89,7 @@ Usage
 
 * if you want to make a payment via token you can use
 
+        ->sendTokinse(true)
         ->sendTransaction('transaction_type','recurring')
         ->sendToken('token returned from the first payment page created with Tokenization option')
 

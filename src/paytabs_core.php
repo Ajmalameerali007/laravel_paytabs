@@ -719,21 +719,15 @@ class PaytabsApi
         // $serverIP = getHostByName(getHostName());
         // $values['ip_merchant'] = PaytabsHelper::getNonEmpty($serverIP, $_SERVER['SERVER_ADDR'], 'NA');
 
+        $isTokenize = array_key_exists('payment_token', $values);
+
         $response = $this->sendRequest(self::URL_REQUEST, $values);
 
         $res = json_decode($response);
 
-        $paypage = $this->enhance($res);
+        $paypage = $isTokenize ? $this->enhanceTokenization($res) : $this->enhance($res);
 
         return $paypage;
-    }
-
-    function create_payment_response($values){
-
-        $response = $this->sendRequest(self::URL_REQUEST, $values);
-
-        return json_decode($response);
-
     }
 
     function verify_payment($tran_reference)
