@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Paytabscom\Laravel_paytabs;
+namespace azima\Laravel_paytabs;
 
 
 class paytabs_core

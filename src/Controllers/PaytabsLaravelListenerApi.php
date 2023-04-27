@@ -1,6 +1,6 @@
 <?php
 
-namespace Paytabscom\Laravel_paytabs\Controllers;
+namespace azima\Laravel_paytabs\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
