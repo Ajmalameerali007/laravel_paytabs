@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Paytabscom\\Laravel_paytabs\\": "src/"
+            "azima\\Laravel_paytabs\\": "src/"
         }
     }
 }

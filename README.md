@@ -23,7 +23,7 @@ This Package requires no external dependencies.
 
 INSTALLATION
 ------------
-- composer require paytabscom/laravel_paytabs
+- composer require azima/laravel_paytabs
 
 CONFIGURATION
 -------------
@@ -31,7 +31,7 @@ CONFIGURATION
 
 * Go to _config/app.php_ and in the providers array add
 
-        Paytabscom\Laravel_paytabs\PaypageServiceProvider::class,
+        azima\Laravel_paytabs\PaypageServiceProvider::class,
 
 * Create the package config file:
 
@@ -57,7 +57,7 @@ Usage
 
 * create pay page
 
-        use Paytabscom\Laravel_paytabs\Facades\paypage;
+        use azima\Laravel_paytabs\Facades\paypage;
 
         $pay= paypage::sendPaymentCode('all')
                ->sendTransaction('sale')
@@ -192,7 +192,7 @@ Now, you need to configure the plugin with the class\method that will grab the p
             // make sure to add your ipn value to paytabs dashboard from here:
              "{paytabs portal}/merchant/developers/ipnconfig".
         }
-you can also get transaction reference number. To get the list of available properties check: _Paytabscom\Laravel__paytabs\IpnRequest_ class.
+you can also get transaction reference number. To get the list of available properties check: _azima_\Laravel__paytabs\IpnRequest_ class.
 
 
 

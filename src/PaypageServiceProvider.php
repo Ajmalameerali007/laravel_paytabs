@@ -1,6 +1,6 @@
 <?php
 
-namespace Paytabscom\Laravel_paytabs;
+namespace azima\Laravel_paytabs;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,7 +20,7 @@ class PaypageServiceProvider extends ServiceProvider
             __DIR__ . '/config/config.php', 'paytabs'
         );
 
-        $this->app->make(\Paytabscom\Laravel_paytabs\Controllers\PaytabsLaravelListenerApi::class);
+        $this->app->make(\azima\Laravel_paytabs\Controllers\PaytabsLaravelListenerApi::class);
     }
 
     /**

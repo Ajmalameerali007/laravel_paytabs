@@ -4,7 +4,7 @@ namespace azima\Laravel_paytabs\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-use Paytabscom\Laravel_paytabs\Services\IpnRequest;
+use azima\Laravel_paytabs\Services\IpnRequest;
 
 class PaytabsLaravelListenerApi extends BaseController
 {
