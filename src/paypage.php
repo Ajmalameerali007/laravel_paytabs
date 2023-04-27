@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Log;
 class paypage
 {
 
-    public  $paytabsinit,
+    public
+        $paytabsinit,
         $paytabs_core,
         $paytabs_api,
         $follow_transaction,
+        $paytabs_core_token,
         $laravel_version,
         $package_version;
     function __construct()
@@ -94,7 +96,7 @@ class paypage
 
     public function sendToken($token)
     {
-        $this->paytabs_core_token->set20Token($token);
+        $this->paytabs_core->set20Token($token);
         return $this;
     }
 
@@ -109,7 +111,6 @@ class paypage
         $this->paytabs_core->set99PluginInfo('Laravel',8,'1.4.0');
         $pp_params = $this->paytabs_core->pt_build();
         $response = $this->paytabs_api->create_pay_page($pp_params);
-
         if ($response->success) {
             $redirect_url = $response->redirect_url;
             if (isset($pp_params['framed']) &&  $pp_params['framed'] == true)

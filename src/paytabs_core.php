@@ -369,6 +369,8 @@ class PaytabsRequestHolder extends PaytabsHolder
 
     //
 
+    private $token_info;
+
     /**
      * @return array
      */
@@ -386,7 +388,8 @@ class PaytabsRequestHolder extends PaytabsHolder
             $this->lang,
             $this->framed,
             $this->tokenise,
-            $this->user_defined
+            $this->user_defined,
+            $this->token_info
         );
 
         return $all;
@@ -436,6 +439,17 @@ class PaytabsRequestHolder extends PaytabsHolder
         return $this;
     }
 
+
+    //
+
+    public function set20Token($token)
+    {
+        $this->token_info = [
+            'payment_token' => $token
+        ];
+
+        return $this;
+    }
 
     public function set04CustomerDetails($name, $email, $phone, $address, $city, $state, $country, $zip, $ip)
     {
@@ -556,11 +570,18 @@ class PaytabsTokenHolder extends PaytabsHolder
         return $this;
     }
 
+    /**
+     * @return array
+     */
+
     public function pt_build()
     {
         $all = parent::pt_build();
 
-        $all = array_merge($all, $this->token_info);
+        $this->pt_merges(
+            $all,
+            $this->token_info
+        );
 
         return $all;
     }
@@ -724,6 +745,8 @@ class PaytabsApi
         $response = $this->sendRequest(self::URL_REQUEST, $values);
 
         $res = json_decode($response);
+
+        // echo $isTokenize;
 
         $paypage = $isTokenize ? $this->enhanceTokenization($res) : $this->enhance($res);
 
