@@ -753,6 +753,8 @@ class PaytabsApi
         return $paypage;
     }
 
+
+
     function verify_payment($tran_reference)
     {
         $values['tran_ref'] = $tran_reference;

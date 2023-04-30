@@ -126,6 +126,21 @@ class paypage
     }
 
 
+    public function create_payment_respose()
+    {
+        $this->paytabs_core->set99PluginInfo('Laravel',8,'1.4.0');
+        $pp_params = $this->paytabs_core->pt_build();
+        $response = $this->paytabs_api->create_pay_page($pp_params);
+        if ($response->success) {
+
+            return $response;
+        }
+        else {
+            Log::channel('PayTabs')->info(json_encode($response));
+            print_r(json_encode($response));
+        }
+    }
+    
     public function refund($tran_ref,$order_id,$amount,$refund_reason)
     {
         $this->follow_transaction->set02Transaction(PaytabsEnum::TRAN_TYPE_REFUND)
